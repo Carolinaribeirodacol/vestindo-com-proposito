@@ -5,6 +5,7 @@ import { Quasar } from 'quasar';
 import '@quasar/extras/material-icons/material-icons.css';  // Ícones
 import 'quasar/dist/quasar.css';  // Estilos principais
 import 'quasar/src/css/index.sass'
+import '../css/app.css';
 
 createInertiaApp({
   resolve: name => {

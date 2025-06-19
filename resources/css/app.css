@@ -1,4 +1,15 @@
 @import 'tailwindcss';
+/* Importa a fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+/* Aplica a fonte globalmente */
+html, body, #app, #q-app {
+  font-family: 'Nunito Sans', serif !important;
+}
+
+.q-btn, .q-toolbar-title, .q-card, .q-page {
+  font-family: 'Nunito Sans', serif !important;
+}
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
