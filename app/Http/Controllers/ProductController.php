@@ -10,7 +10,7 @@ class ProductController extends Controller
     public function index()
     {
         return Inertia::render('Home', [
-            'products' => Product::all(),
+            'products' => Product::with('sizes')->get()
         ]);
     }
 }

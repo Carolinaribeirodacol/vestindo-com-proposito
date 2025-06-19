@@ -15,11 +15,20 @@
             <q-page padding>
                 <h1 class="text-h4 q-mb-md page-title">T-shirts</h1>
 
-                <q-gutter-md class="row q-col-gutter-md q-row-gutter-md">
+                <q-gutter-md class="row q-col-gutter-md q-row-gutter-md justify-center">
                     <q-card v-for="product in products" :key="product.id"
                         class="col-12 col-sm-6 col-md-4 col-lg-3 my-card" flat style="max-width: 400px;">
                         <q-img :src="product.image" alt="Imagem da camiseta" style="height: 500px;" class="q-mb-sm"
-                            contain />
+                            contain>
+                            <div class="absolute-bottom text-subtitle2 card-sizes">
+                                <div class="row q-gutter-xs">
+                                    <q-chip v-for="size in product.sizes" :key="size.name" size="md" dense square
+                                        outline text-color="white">
+                                        {{ size.name }} <span v-if="size.pivot.quantity === 0"> (Esgotado) </span>
+                                    </q-chip>
+                                </div>
+                            </div>
+                        </q-img>
 
                         <q-card-section class="card-section">
                             <div class="product-title">{{ product.name }}</div>
@@ -64,6 +73,21 @@ function formatPrice(value) {
 <style scoped>
 .header {
     padding: 1rem;
+    background-color: #fff;
+    color: #1e1e1d;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.card-sizes {
+    padding: .6rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.my-card:hover .card-sizes {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .card-section {
@@ -90,6 +114,7 @@ function formatPrice(value) {
 .my-card {
     transition: box-shadow 0.3s ease;
     border: none;
+    border-radius: 0;
 }
 
 .my-card:hover {
@@ -98,6 +123,8 @@ function formatPrice(value) {
 
 .page-title {
     font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
     color: #1e1e1d;
 }
 

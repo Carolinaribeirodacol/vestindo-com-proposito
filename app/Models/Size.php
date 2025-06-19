@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Size extends Model
 {
-    public function sizes()
+    public function products()
     {
-        return $this->belongsToMany(Size::class, 'product_size')
+        return $this->belongsToMany(Product::class, 'product_size')
             ->withPivot('quantity')
             ->withTimestamps();
     }
